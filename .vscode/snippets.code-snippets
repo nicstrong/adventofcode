@@ -15,4 +15,17 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
+	"New day": {
+		"scope": "typescript",
+		"prefix": "new-day",
+		"body": [
+		  "import { readLines } from './util/util.js'",
+		  "",
+		  "export async function $TM_FILENAME_BASE() {",
+		  "  var data = await readLines('data/$TM_FILENAME_BASE.data')",
+		  "",
+		  "}",
+		  "",
+		]
+	  },
 }
