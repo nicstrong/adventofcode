@@ -1,3 +1,3 @@
-My answers to the 2022 Advent of Code
+My answers to the Advent of Code
 
-https://adventofcode.com/2022
+Arranged by year under src/ and data/ (inputs)

@@ -1,7 +1,7 @@
-import { readLines } from "./util/util.js"
+import { readLines } from "../util/util.js"
 
 export async function day1iter() {
-    var data = await readLines('data/day1.data')
+    var data = await readLines('data/2022/day1.in')
 
     let totals = []
     let current = 0

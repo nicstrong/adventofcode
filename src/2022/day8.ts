@@ -1,7 +1,7 @@
-import { readLines } from './util/util.js'
+import { readLines } from '../util/util.js'
 
 export async function day8() {
-    var data = await readLines('data/day8.data')
+    var data = await readLines('data/2022/day8.in')
 
     const map = treeMap(data)
     const transposedMap = transpose(map)
@@ -124,9 +124,6 @@ function countVisible(map: number[][], transposedMap: number[][]): number {
         return true
     }
 }
-
-
-
 
 
 function treeMap(data: string[]): number[][] {

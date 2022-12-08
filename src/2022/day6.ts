@@ -1,7 +1,7 @@
-import { readLines } from './util/util.js'
+import { readLines } from '../util/util.js'
 
 export async function day6() {
-    var data = await readLines('data/day6.data')
+    var data = await readLines('data/2022/day6.in')
 
     console.log(`part1 1: ${startMarker('mjqjpqmgbljsphdztnvjfqwrcgsmlb', 4)}`)
     console.log(`part1 2: ${startMarker('bvwbjplbgvbhsrlpgdmjqwftvncz', 4)}`)

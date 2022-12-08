@@ -1,7 +1,7 @@
-import { readLines } from './util/util.js'
+import { readLines } from '../util/util.js'
 
 export async function day5() {
-    var data = await readLines('data/day5.data')
+    var data = await readLines('data/2022/day5.in')
 
     let stacks = getStacks(data)
     const moves = getMoves(data)
@@ -55,7 +55,7 @@ function getStacks(data: string[]): Stacks {
 }
 
 function getMoves(data: string[]): (readonly [number, number, number])[] {
-    const results = []
+    const results: (readonly [number, number, number])[] = []
     for (let i = 10; i < data.length; ++i) {
         const tokens = data[i]?.split(' ')
         if (!tokens || tokens.length !== 6) throw new Error('Bad move line')

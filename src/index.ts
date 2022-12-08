@@ -1,4 +1,4 @@
-import { day8 } from "./day8.js";
+import { day8 } from "./2022/day8.js";
 
 // day1()
 // day2()

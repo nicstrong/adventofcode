@@ -1,4 +1,4 @@
-import { readLines } from "./util/util.js"
+import { readLines } from "../util/util.js"
 
 const DRAW_PTS = 3
 const WIN_PTS = 6
@@ -15,7 +15,7 @@ enum Result {
 }
 
 export async function day2() {
-    var data = await readLines('data/day2.data')
+    var data = await readLines('data/2022/day2.in')
 
 
     const scores = data

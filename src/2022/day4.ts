@@ -1,7 +1,7 @@
-import { readLines } from './util/util.js'
+import { readLines } from '../util/util.js'
 
 export async function day4() {
-    var data = await readLines('data/day4.data')
+    var data = await readLines('data/2022/day4.in')
 
     const scores = data
         .map(r => {

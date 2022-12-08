@@ -1,7 +1,7 @@
-import { readLines } from './util/util.js'
+import { readLines } from '../util/util.js'
 
 export async function day3() {
-    var data = await readLines('data/day3.data')
+    var data = await readLines('data/2022/day3.in')
 
     const scores = data
         .reduce((acc, l) => {

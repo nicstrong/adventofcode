@@ -1,7 +1,7 @@
-import { readLines } from './util/util.js'
+import { readLines } from '../util/util.js'
 
 export async function day7() {
-    var data = await readLines('data/day7.data')
+    var data = await readLines('data/2022/day7.in')
 
     const commands = processCommands(data)
 
