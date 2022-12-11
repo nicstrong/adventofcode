@@ -29,6 +29,7 @@
     "typescript": "^4.9.3"
   },
   "dependencies": {
-    "@tsconfig/node-lts-strictest-esm": "^18.12.1"
+    "@tsconfig/node-lts-strictest-esm": "^18.12.1",
+    "seqitr": "^0.11.0"
   }
 }

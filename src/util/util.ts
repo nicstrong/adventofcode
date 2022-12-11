@@ -36,6 +36,11 @@ export function equalMatrix<T>(matrix1: T[][], matrix2: T[][]): boolean {
 export const deepCloneMatrix = <T>(matrix: T[][]): T[][] => {
     return matrix.map(row => row.slice());
   }
-
-
+  
+export function stringify(obj: any) {
+    return JSON.stringify(obj, (_key, value) =>
+    typeof value === 'bigint'
+        ? value.toString()
+        : value) // return everything else unchanged
+}
 
