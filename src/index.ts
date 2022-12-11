@@ -1,4 +1,5 @@
-import { day10 } from "./2022/day10.js";
+import { run2021 } from "./2021/index.js";
+
 // day1()
 // day2()
 // day3()
@@ -8,7 +9,8 @@ import { day10 } from "./2022/day10.js";
 // day7()
 // day8()
 // day9()
-day10()
+// day10()
 
 
-//run2021()
+
+run2021()

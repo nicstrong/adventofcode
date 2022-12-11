@@ -34,11 +34,11 @@ export async function day10() {
     console.log('Part 1: ' + finalState[2])
 
 
-    const [screen, updateScreen] = createScreen()
+    const [crt, updateCrt] = createCrt()
     for (const [cycle, x] of runProgram(instructions)) {
-        updateScreen(cycle, x)
+        updateCrt(cycle, x)
     }
-    renderScreen(screen)
+    renderCrt(crt)
 }
 
 function* runProgram(instructions: Instruction[]) {
@@ -55,7 +55,7 @@ function* runProgram(instructions: Instruction[]) {
     }
 }
 
-function renderScreen(screen: Screen) {
+function renderCrt(screen: Screen) {
     const width = screen[0]!.length;
 
     for (const row of screen) {
@@ -65,12 +65,11 @@ function renderScreen(screen: Screen) {
 
 type Pixel = '#' | '.';
 
-// Creates a set of possible sprite positions based on the given X register value
 const spritePosition = (x: number) => new Set([x - 1, x, x + 1]);
 
 type Screen = Array<Pixel[]>;
 
-function createScreen(width = 40, height = 6) {
+function createCrt(width = 40, height = 6) {
     const screen: Screen = [
         ...Array(height).fill(0).map((_) => [
             ...Array(width).fill('.'),
