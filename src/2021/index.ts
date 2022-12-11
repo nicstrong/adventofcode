@@ -1,5 +1,6 @@
-import { day25 } from "./day25";
+import { day2 } from "./day2.js";
 
 export function run2021() {
-    day25()
+    //day1()
+    day2()
 }
