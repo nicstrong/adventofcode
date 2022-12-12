@@ -9,10 +9,10 @@
 // day8()
 // day9()
 
-import { day11 } from "./2022/day11.js";
+import { day12 } from "./2022/day12.js";
 
 // day10()
-day11()
+day12()
 
 
 
