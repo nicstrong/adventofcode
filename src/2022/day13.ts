@@ -10,8 +10,9 @@ export async function day13() {
         const pair = input[i]!
         const [a, b] = pair
         const result = compare(a, b)
-        if (result) {
+        if (result < 0) {
             inOrder.push(i + 1)
+            //console.log(`Pair: ${i + 1} ${JSON.stringify(a)} < ${JSON.stringify(b)}`)
         }
     }
     console.log(`Part 1: ${inOrder.reduce((acc, x) => acc + x, 0)}`)
@@ -20,55 +21,57 @@ export async function day13() {
     const divider2 = [[6]]
     const part2 = await getInputPart2()
     const markers = [...part2, divider1, divider2]
-    const sorted = markers.sort((a, b) => {
-        const res = compare(a, b)
-        if (res === null) {
-            0
-        }
-        return res ? -1 : 1
-    })
+    const sorted = markers.sort(compare)
     const marker1 = sorted.indexOf(divider1) + 1
     const marker2 = sorted.indexOf(divider2) + 1
     console.log(`Part 2: ${marker1 * marker2}`)
 }
 
-function compare(a: Packet, b: Packet): boolean | null {
+function compare(a: Packet, b: Packet): number {
 
     for (let i = 0; i < a.length; i++) {
         const aVal = a[i]!
         const bVal = b[i]!
-        //console.log(`Comparing ${JSON.stringify(aVal)} and ${JSON.stringify(bVal)}: ${typeof aVal} and ${typeof bVal}`)
+        //console.log(`Comparing ${JSON.stringify(aVal)} and ${JSON.stringify(bVal)}`)
         if (aVal !== undefined && bVal === undefined) {
-            return false
+            return 1
         }
-        if (typeof aVal === 'number' && typeof bVal === 'number') {
+        if (isNumber(aVal) && isNumber(bVal)) {
             if (aVal > bVal) {
-                return false
+                return 1
             } else if (aVal < bVal) {
-                return true
+                return -1
             }
-        } else if (typeof aVal === 'object' && typeof bVal === 'object') {
+        } else if (isPacket(aVal) && isPacket(bVal)) {
             const res = compare(aVal, bVal)
-            if (res !== null) {
+            if (res !== 0) {
                 return res
             }
-        } else if (typeof aVal === 'number' && typeof bVal === 'object') {
+        } else if (isNumber(aVal) && isPacket(bVal)) {
             const res = compare([aVal], bVal)
-            if (res !== null) {
+            if (res !== 0) {
                 return res
             }
-        } else if (typeof aVal === 'object' && typeof bVal === 'number') {
+        } else if (isPacket(aVal) && isNumber(bVal)) {
             const res = compare(aVal, [bVal])
-            if (res !== null) {
+            if (res !== 0) {
                 return res
             }
         }
     }
-    return a.length < b.length ? true : a.length === b.length ? null : false
+    return a.length < b.length ? -1 : a.length === b.length ? 0 : 1
 }
 
 type Packet = (number | Packet)[]
 type Pair = readonly [Packet, Packet]
+
+function isPacket(x: number|Packet): x is Packet {
+    return Array.isArray(x)
+}
+
+function isNumber(x: number|Packet): x is number {
+    return typeof x === 'number'
+}
 
 
 async function getInputPart1() {
