@@ -5,25 +5,20 @@ const DATA_FILE = 'data/2022/day13.in'
 export async function day13() {
     const input = await getInputPart1()
 
-    let inOrder: number[] = []
-    for (let i = 0; i < input.length; i++) {
-        const pair = input[i]!
-        const [a, b] = pair
-        const result = compare(a, b)
-        if (result < 0) {
-            inOrder.push(i + 1)
-            //console.log(`Pair: ${i + 1} ${JSON.stringify(a)} < ${JSON.stringify(b)}`)
-        }
-    }
-    console.log(`Part 1: ${inOrder.reduce((acc, x) => acc + x, 0)}`)
+
+    const part1 = (await getInputPart1())
+                    .map((x, i) => [i + 1, compare(x[0], x[1])] as const)
+                    .filter(x => x[1] < 0)
+                    .reduce((acc, x) => acc + x[0], 0)
+    console.log(`Part 1: ${part1}`)
 
     const divider1 = [[2]]
     const divider2 = [[6]]
-    const part2 = await getInputPart2()
-    const markers = [...part2, divider1, divider2]
-    const sorted = markers.sort(compare)
-    const marker1 = sorted.indexOf(divider1) + 1
-    const marker2 = sorted.indexOf(divider2) + 1
+    const part2 = (await getInputPart2())
+                    .concat([divider1, divider2])
+                    .sort(compare)
+    const marker1 = part2.indexOf(divider1) + 1
+    const marker2 = part2.indexOf(divider2) + 1
     console.log(`Part 2: ${marker1 * marker2}`)
 }
 
