@@ -1,3 +1,4 @@
+import seqitr from 'seqitr'
 import { readAocData } from '../util/util.js'
 
 const DATA_FILE = 'data/2022/day13.in'
@@ -73,16 +74,13 @@ async function getInputPart1() {
 
     var data = await readAocData(DATA_FILE)
 
-    const input = data.lines
-        .map(line => eval(line))
+    const input = seqitr(data.lines)
+        .map(line => eval(line) as Packet)
+        .chunk(2)
+        .map(x => [x[0]!, x[1]!] as const)
+        .toArray()
 
-    let pairs: Pair[] = []
-    for (let i = 0; i <= input.length; i++) {
-        if (!input[i]) {
-            pairs.push([input[i - 2], input[i - 1]])
-        }
-    }
-    return pairs
+    return input
 }
 
 

@@ -1,5 +1,7 @@
-import seqitr from '../util/seqitr.js'
+import seqitr from 'seqitr'
 import { readAocData } from '../util/util.js'
+
+
 
 type Symbol = 'E' | 'S'
     | 'a' | 'b' | 'c' | 'd' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm'

@@ -1,5 +1,5 @@
 import { expect } from "chai"
-import { moveEastFacingRow } from "./day25"
+import { moveEastFacingRow } from "./day25.js"
 
 describe('moveEastFacingRow', () => {
     it('step1', () => {

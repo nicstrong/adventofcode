@@ -1,6 +1,6 @@
-import { day13 } from "./2022/day13.js";
+import { day14 } from "./2022/day14.js";
 
-day13()
+day14()
 
 
 
