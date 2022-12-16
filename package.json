@@ -30,6 +30,6 @@
   },
   "dependencies": {
     "@tsconfig/node-lts-strictest-esm": "^18.12.1",
-    "seqitr": "^0.11.0"
+    "seqitr": "file:../seqitr/seqitr-0.11.0.tgz"
   }
 }
